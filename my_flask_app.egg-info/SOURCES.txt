@@ -1,0 +1,8 @@
+setup.py
+my_app_recap/__init__.py
+my_app_recap/app.py
+my_app_recap/parse_web_data.py
+my_flask_app.egg-info/PKG-INFO
+my_flask_app.egg-info/SOURCES.txt
+my_flask_app.egg-info/dependency_links.txt
+my_flask_app.egg-info/top_level.txt

@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  my-fav:
+    image: my_flask_app:latest 
+    restart: unless-stopped
+    hostname: my-fav
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "3"
+    user: "1000:1000"
+    environment:
+      HOME: '/code'
+      TMPDIR: '/code/tmp'
+    volumes:
+      - .:/code
+    ports:
+      - "8000:6000"
+    entrypoint: uwsgi resources/config.ini
