@@ -7,8 +7,10 @@ import uuid
 import time
 
 import requests
-from entities_extraction import getdata
-from parse_web_data import extract_text_from_html
+from my_app_recap.entities_extraction import getdata
+from kafka_connector.producer import push_to_kafka
+from my_app_recap.parse_web_data import extract_text_from_html
+from utils import logger
 # curl -X POST -F "files=@/path/to/file1.html" -F "files=@/path/to/file2.html" http://127.0.0.1:4500/recap/htmlupload
 # curl -X POST -F "files=@/Users/madhumr/dokcerpro/index.html" http://127.0.0.1:4500/recap/htmlupload
 # curl -X POST -H "Content-Type: application/json" -d '{"urls": ["http://example.com", "http://example2.com"]}' http://127.0.0.1:4500/recap/htmlurl
@@ -18,41 +20,41 @@ from parse_web_data import extract_text_from_html
 
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='Entites Extraction API',
-          description='Explore our wonderful user frindly API',
-          doc='/recap/doc/'  # The base URL for Swagger UI documentation
-          )
+# api = Api(app, version='1.0', title='Entites Extraction API',
+#           description='Explore our wonderful user frindly API',
+#           doc='/recap/doc/'  # The base URL for Swagger UI documentation
+#           )
 
-ns = api.namespace('API', description='All API operations in one place')
+# ns = api.namespace('API', description='All API operations in one place')
 
-post_model = api.model('PostModel', {
-    'source': fields.String(required=True, description='The first source  "recap"'),
-    'text': fields.String(required=True, description='the text which you want to reconginze the entities')
-})
+# post_model = api.model('PostModel', {
+#     'source': fields.String(required=True, description='The first source  "recap"'),
+#     'text': fields.String(required=True, description='the text which you want to reconginze the entities')
+# })
 
 # @ns.expect(post_model)
-@ns.route('/recap/request')
-class Resource1(Resource):
-    @ns.doc('get_request')
-    def get(self):
-        """Get a simple message"""
-        return {"message": "This is resource 1"}
+# @ns.route('/recap/request')
+# class Resource1(Resource):
+#     @ns.doc('get_request')
+#     def get(self):
+#         """Get a simple message"""
+#         return {"message": "This is resource 1"}
 
     
-    @ns.expect(post_model)
-    @ns.doc('post_request')
-    def post(self):
-        """Post a simple message"""
-        data = request.json
+#     @ns.expect(post_model)
+#     @ns.doc('post_request')
+#     def post(self):
+#         """Post a simple message"""
+#         data = request.json
 
-        external_api_url = 'http://127.0.0.1:4500/recap/request'
-        try:
-            response = requests.get(external_api_url)
-            response.raise_for_status()  # Raise an HTTPError on bad status
-            data = response.json()
-            return {"message": "Success", "data": data}, 200
-        except requests.exceptions.RequestException as e:
-            return {"message": "Failed to retrieve data", "error": str(e)}, 500
+#         external_api_url = 'http://127.0.0.1:4500/recap/request'
+#         try:
+#             response = requests.get(external_api_url)
+#             response.raise_for_status()  # Raise an HTTPError on bad status
+#             data = response.json()
+#             return {"message": "Success", "data": data}, 200
+#         except requests.exceptions.RequestException as e:
+#             return {"message": "Failed to retrieve data", "error": str(e)}, 500
         
 
 
@@ -69,7 +71,7 @@ def process_request():
     resp["time_taken_ms"] = time_ms
     resp = jsonify(resp)
     resp.headers.add("Access-Control-Allow-Origin", "*")
-        
+    
     return resp
 
 @app.route('/recap/htmlupload', methods=['POST'])
@@ -139,6 +141,9 @@ def do_process_request(text=None):
         data = obj.get('text')
     print(f"data sending to model: {data}")
     status, entry = getdata(data)
+    logging.info(f"data pushing to kafka : {entry}")
+    if  entry is not None:
+        push_to_kafka(entry)
     logging.info(f"sentence:{data}")
     if status == "SUCCESS":
             res = {'data':  entry, 'status': status, 'code': 200}
@@ -158,5 +163,6 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
+    logger.init()
     app.run(port=4500,debug=True)
 

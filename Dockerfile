@@ -8,6 +8,7 @@ WORKDIR /code
 RUN python -m pip install --upgrade pip
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt  --no-cache-dir
+RUN python -m spacy download en_core_web_sm
 RUN chown 1000:1000 /code
 USER 1000:1000
 ENV HOME=/code

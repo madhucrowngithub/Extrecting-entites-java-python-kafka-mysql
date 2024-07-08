@@ -1,0 +1,72 @@
+INFO MainThread 2024-06-22 00:21:05,625 logger.py:33 init Logger initialized
+INFO MainThread 2024-06-22 00:21:05,628 _internal.py:97 _log [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4500
+INFO MainThread 2024-06-22 00:21:05,628 _internal.py:97 _log [33mPress CTRL+C to quit[0m
+INFO MainThread 2024-06-22 00:21:05,629 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:21:06,416 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:21:06,417 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:21:06,430 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO Thread-2 (process_request_thread) 2024-06-22 00:22:03,408 _internal.py:97 _log 127.0.0.1 - - [22/Jun/2024 00:22:03] "[35m[1mPOST /recap/request HTTP/1.1[0m" 500 -
+INFO MainThread 2024-06-22 00:23:04,672 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/my_app_recap/app.py', reloading
+INFO MainThread 2024-06-22 00:23:04,761 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:23:05,615 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:23:05,617 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:23:05,629 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO Thread-2 (process_request_thread) 2024-06-22 00:23:15,968 app.py:139 do_process_request obj:{'source': 'recap', 'text': 'today i travled morethen 65 km in my city'}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:23:16,644 app.py:146 do_process_request sentence:today i travled morethen 65 km in my city
+INFO Thread-2 (process_request_thread) 2024-06-22 00:23:16,644 app.py:68 process_request got response as: {'data': {'DATE': 'today', 'QUANTITY': '65 km'}, 'status': 'SUCCESS', 'code': 200}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:23:16,646 _internal.py:97 _log 127.0.0.1 - - [22/Jun/2024 00:23:16] "POST /recap/request HTTP/1.1" 200 -
+INFO MainThread 2024-06-22 00:39:21,340 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/my_app_recap/app.py', reloading
+INFO MainThread 2024-06-22 00:39:21,434 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:39:22,295 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:39:22,298 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:39:22,307 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO MainThread 2024-06-22 00:40:11,344 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/my_app_recap/app.py', reloading
+INFO MainThread 2024-06-22 00:40:11,425 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:40:12,270 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:40:12,272 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:40:12,282 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:19,699 app.py:139 do_process_request obj:{'source': 'recap', 'text': 'today i travled morethen 65 km in my city'}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:19,718 app.py:144 do_process_request data pushing to kafka : {'DATE': 'today', 'QUANTITY': '65 km'}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:20,301 app.py:147 do_process_request sentence:today i travled morethen 65 km in my city
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:20,302 app.py:68 process_request got response as: {'data': {'DATE': 'today', 'QUANTITY': '65 km'}, 'status': 'SUCCESS', 'code': 200}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:20,303 app.py:74 process_request returning the response as : <Response 179 bytes [200 OK]>
+INFO Thread-2 (process_request_thread) 2024-06-22 00:40:20,303 _internal.py:97 _log 127.0.0.1 - - [22/Jun/2024 00:40:20] "POST /recap/request HTTP/1.1" 200 -
+INFO MainThread 2024-06-22 00:43:32,897 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/kafka_connector/producer.py', reloading
+INFO MainThread 2024-06-22 00:43:33,023 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:43:33,873 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:43:33,875 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:43:33,885 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,790 app.py:139 do_process_request obj:{'source': 'recap', 'text': 'today i travled morethen 65 km in my city'}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,803 app.py:144 do_process_request data pushing to kafka : {'DATE': 'today', 'QUANTITY': '65 km'}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,803 producer.py:24 push_to_kafka pushing data to the kafka to the topic : my_topic  and key : DATE and the value today
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,804 producer.py:24 push_to_kafka pushing data to the kafka to the topic : my_topic  and key : QUANTITY and the value 65 km
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,907 app.py:147 do_process_request sentence:today i travled morethen 65 km in my city
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,908 app.py:68 process_request got response as: {'data': {'DATE': 'today', 'QUANTITY': '65 km'}, 'status': 'SUCCESS', 'code': 200}
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,909 app.py:74 process_request returning the response as : <Response 179 bytes [200 OK]>
+INFO Thread-2 (process_request_thread) 2024-06-22 00:43:44,909 _internal.py:97 _log 127.0.0.1 - - [22/Jun/2024 00:43:44] "POST /recap/request HTTP/1.1" 200 -
+INFO MainThread 2024-06-22 00:45:53,460 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/my_app_recap/app.py', reloading
+INFO MainThread 2024-06-22 00:45:53,550 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 00:45:54,367 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 00:45:54,369 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 00:45:54,379 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO MainThread 2024-06-22 01:05:06,629 logger.py:33 init Logger initialized
+INFO MainThread 2024-06-22 01:05:06,632 _internal.py:97 _log [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4500
+INFO MainThread 2024-06-22 01:05:06,632 _internal.py:97 _log [33mPress CTRL+C to quit[0m
+INFO MainThread 2024-06-22 01:05:06,632 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 01:05:07,414 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 01:05:07,415 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 01:05:07,427 _internal.py:97 _log  * Debugger PIN: 762-487-690
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:29,566 app.py:139 do_process_request obj:{'source': 'recap', 'text': 'today i travled morethen 65 km in my city'}
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:29,594 app.py:144 do_process_request data pushing to kafka : {'DATE': 'today', 'QUANTITY': '65 km'}
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:29,594 producer.py:24 push_to_kafka pushing data to the kafka to the topic : my_topic  and key : DATE and the value today
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:29,595 producer.py:24 push_to_kafka pushing data to the kafka to the topic : my_topic  and key : QUANTITY and the value 65 km
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:30,518 app.py:147 do_process_request sentence:today i travled morethen 65 km in my city
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:30,518 app.py:68 process_request got response as: {'data': {'DATE': 'today', 'QUANTITY': '65 km'}, 'status': 'SUCCESS', 'code': 200}
+INFO Thread-2 (process_request_thread) 2024-06-22 01:05:30,520 _internal.py:97 _log 127.0.0.1 - - [22/Jun/2024 01:05:30] "POST /recap/request HTTP/1.1" 200 -
+INFO MainThread 2024-06-22 01:06:07,959 _internal.py:97 _log  * Detected change in '/Users/madhumr/dokcerpro/kafka_connector/cunsumer.py', reloading
+INFO MainThread 2024-06-22 01:06:08,047 _internal.py:97 _log  * Restarting with stat
+INFO MainThread 2024-06-22 01:06:08,881 logger.py:33 init Logger initialized
+WARNING MainThread 2024-06-22 01:06:08,884 _internal.py:97 _log  * Debugger is active!
+INFO MainThread 2024-06-22 01:06:08,892 _internal.py:97 _log  * Debugger PIN: 762-487-690

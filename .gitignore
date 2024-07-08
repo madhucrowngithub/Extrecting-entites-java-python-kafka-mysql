@@ -1,0 +1,6 @@
+
+*.vscode
+*.python_history
+*.bash_history
+*.logs
+*.gitignore.swp
